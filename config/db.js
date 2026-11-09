@@ -1,0 +1,47 @@
+import mongoose from "mongoose";
+
+const connectDB = async (mongoUri, dbName) => {
+  try {
+    await mongoose.connect(mongoUri, {
+      dbName: dbName,
+    });
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error("Error connecting to MongoDB:", err);
+    process.exit(1);
+  }
+};
+
+export default connectDB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import mongoose from "mongoose";
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URL, {
+            dbName: process.env.DB_NAME
+        });
+
+        console.log("Connected to MongoDB successfully");
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error.message);
+        process.exit(1);
+    }
+};
+
+export default connectDB;*/
