@@ -10,7 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoURI = process.env.MONGO_URL;
 const dbName = process.env.DB_NAME;
-
+//Test route
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 connectDB(mongoURI, dbName);
 app.use(express.json());
 
@@ -18,10 +21,7 @@ app.use(express.json());
 app.use("/api/v1/todos", todoRoutes);
 // Routes for user API
 app.use("/api/v1/users", userRoutes);
-//Test route
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
